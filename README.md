@@ -22,19 +22,19 @@ The purpose of this challenge is to:
 
 1. From _retirement_titles_ we can see that many employees have had multiple titles, which means they have worked on different positions through their career at Pewlett Hachard, either by transfer or promotion. This piece of information gives us an insight that internal promotion could also be part of the preparation for the “silver tsunami”. For example, promote current employees to fill higher or management level then hire entry level employees.
 
-![1_retirement_titles](https://user-images.githubusercontent.com/84211948/128157793-7778a2ef-1361-4eee-b1a6-be097936941c.png)
+    ![1_retirement_titles](https://user-images.githubusercontent.com/84211948/128157793-7778a2ef-1361-4eee-b1a6-be097936941c.png)
 
 2. _unique_titles_ table gives us the number of how many employees are about to retire with each employee’s name and title. From this table we can see that there are 72,458 employees who are currently working will retire soon. Therefore, HR team needs to start recruitment to fill 72,458 soon-to-be available positions.
 
-![2_unique_titles](https://user-images.githubusercontent.com/84211948/128157825-061ff3f3-697f-423c-97ae-1307b3761fcd.png)
+    ![2_unique_titles](https://user-images.githubusercontent.com/84211948/128157825-061ff3f3-697f-423c-97ae-1307b3761fcd.png)
 
 3. _retiring_titles_ table gives us an idea of how many employees of each title will retire. 25,916 Senior Engineers and 24,926 Senior Staff will retire, HR should spend much attention of these two titles. Only 2 Managers are retiring, which is a good sign for management team.
 
-![3_title_counts](https://user-images.githubusercontent.com/84211948/128158115-ef881c4a-c319-4f99-8fcb-b9cdaa5612db.png)
+    ![3_title_counts](https://user-images.githubusercontent.com/84211948/128158115-ef881c4a-c319-4f99-8fcb-b9cdaa5612db.png)
 
 4. _mentorship_eligibility_ table shows that there are 1,549 employees qualified for the mentorship program. These employees are very experienced while not yet ready to retire.
 
-![4_mentorship](https://user-images.githubusercontent.com/84211948/128157857-4f1a7d32-3c1b-42a1-933a-4cbab7dbf666.png)
+    ![4_mentorship](https://user-images.githubusercontent.com/84211948/128157857-4f1a7d32-3c1b-42a1-933a-4cbab7dbf666.png)
 
 ## III. Summary
 
