@@ -11,7 +11,6 @@ FROM employees AS emp
 	INNER JOIN titles AS t
 		ON emp.emp_no = t.emp_no
 WHERE (emp.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
-AND (t.to_date = '9999-01-01')
 ORDER BY emp_no ASC;
 
 -- Use Dictinct with Orderby to remove duplicate rows
@@ -20,7 +19,8 @@ first_name,
 last_name,
 title
 INTO unique_titles
-FROM retirement_titles
+FROM retirement_titles AS rt
+WHERE rt.to_date = '9999-01-01'
 ORDER BY emp_no ASC, to_date DESC;
 
 -- Create a table to hold the count of retiring employees from each department.
@@ -55,9 +55,10 @@ ORDER BY emp_no ASC;
 SELECT COUNT (emp_no) AS "eligible count"
 FROM mentor_eligi;
 	
+SELECT COUNT (emp_no)
+FROM retirement_titles;
 	
 	
-	
-	
-	
+SELECT COUNT (emp_no)
+FROM unique_titles;
 	
