@@ -39,6 +39,54 @@ The purpose of this challenge is to:
 ## III. Summary
 
 ### 1. How many roles will need to be filled as the "silver tsunami" begins to make an impact?
+- According to _unique_titles_ table, there will be 72,458 roles need to be filled. These 72,458 roles have been divided by titles in r_etiring_titles_ table: 25,916 Senior Engineers, 24,926 Senior Staff, 9,285 Engineers, 7,636 Staff, 3,603 Technique Leaders, 1,090 Assistant Engineers and 2 Managers.
+    
 ### 2. Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+- According to mentorship_eligibility table, there are 1,549 employees eligible to mentor the next generation of employees. For a total number of 72,458 roles, each mentor will have 47 mentees in average. 
+- I also used ```SELECT COUNT``` to get the number of qualified mentors of each role requires specific skill, then I calculated average mentees for each title mentor as shown below. Each Senior Engineer will need to mentor 90 mentees, which is impossible. Each Assistant Engineer will have the least number of mentees of 19, which is still barely possible. Unfortunately, there’s no mentors for manager role. Overall, we can conclude that there are not enough number of mentors. 
 
-### Additional
+     ![title_mentor](https://user-images.githubusercontent.com/84211948/128326752-33dd3218-6d1a-4ecd-aca9-0ae980b2eb5e.png)
+
+### Additional Queries and Tables
+To better address above questions, we should not only rely on title but also take a look at department information. I created two additional queries and tables to further analyze the results in detail.
+
+Large-scale companies like Pewlett Hackard are often operated by departments. Each department has its own engineer, staff, technique, or management teams, and different departments require different domain knowledge. For example, engineer in Finance Department would require finance related knowledge and experience, while Development Department may prefer engineers who have development related experience. Therefore, it is not accurate enough for HR team to execute hiring plans when roles are solely divided by titles, we also need further information on departments. Similar for mentorship program, we need to see how many mentors available for each department to see whether there are enough mentors for the “Silver Tsunami”. For this purpose, the queries and tables below are created.
+
+#### 1. Number of retiring employees of each department.
+
+This table suggests the number of retiring employees of each department. Based on this table, HR can accurately target the roles of each department with specific skills requirements.
+
+   ![retiring_each_department](https://user-images.githubusercontent.com/84211948/128327304-e9620505-5b95-4b52-b557-7c3dac3a337e.png)
+
+Queries:
+- Step 1: Add _dept_name _and _dept_no_ to _unique_titles_ to make each employee data includes dept information. New table _unique_titles_dept_ is created.
+- Step 2: Redundant dept information leads to duplicated employee rows, I used ```DISTINCT ON``` to remove duplicated employee rows in _unique_titles_dept_. New table _unique_dept_ is created.
+- Step 3: `SELECTE COUNT` is applied to get a final summary of retiring employee number of each department. New table _retiring _dept_ is created.
+
+   ![additional1](https://user-images.githubusercontent.com/84211948/128327691-697cb681-e403-4749-80a1-f73d3e2c7852.png)
+
+#### 2.	Number of qualified mentors in each department.
+
+   ![mentor_dept](https://user-images.githubusercontent.com/84211948/128328023-97c6d63f-5455-413f-b775-16c8bead4838.png)
+
+Queries:
+- Step 1: created a new qualified mentors table to include _dept_name_ of each employee by `DINSTINCT ON` and `INNER JOIN`. New table _mentor_eligi_dept_ is created.
+- Step 2: `SELECT COUNT` is applied to get a final summary of qualified mentors number of each department. New table _eligible_dept_counts_ is created.
+
+   ![additional2](https://user-images.githubusercontent.com/84211948/128328048-50b3b552-0321-47aa-b218-5d544a84e6a8.png)
+
+From above two additional tables we can get an analysis of how many mentees each mentor would have:
+
+   ![dept_mentor](https://user-images.githubusercontent.com/84211948/128328104-0e3227fd-74a9-4f2f-8e1c-4b7de2a4b5d3.png)
+
+In average, each mentor would have around 40-60 mentees in all the departments, which is still not efficient unless the company has capacity to hold large-scale training programs. In conclusion, the company should take actions immediately to get ready for the “Silver Tsunami”.
+
+
+
+
+
+
+
+
+
+
